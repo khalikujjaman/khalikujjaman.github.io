@@ -131,7 +131,7 @@ def check_sitemap():
         fail("robots.txt is missing")
     elif "Sitemap: %ssitemap.xml" % CANONICAL not in robots.read_text(encoding="utf-8"):
         fail("robots.txt does not point at the sitemap")
-    for name in ("favicon.svg", "social-card.png", "assets/site.css"):
+    for name in ("favicon.svg", "favicon.ico", "social-card.png", "assets/site.css"):
         if not (ROOT / name).is_file():
             fail("missing root asset: %s" % name)
 
