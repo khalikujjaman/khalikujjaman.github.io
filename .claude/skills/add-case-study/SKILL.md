@@ -69,9 +69,9 @@ Tag list: three to four items, one of which is numeric (`2.57 GPa contact`,
 ## Every addition touches four things
 
 1. The `<article>` in `<div class="project-grid">`.
-2. The project nav directly above the grid — add a matching
-   `<a href="/#project-NN"><small>NN</small><span>SHORT LABEL</span>…</a>`
-   with the same chevron `<svg>` as its siblings.
+2. The `<span class="work-count">NN current projects</span>` above the grid — bump
+   the count. (There is no longer a "recently added" nav; it was removed in
+   August 2026. Do not reintroduce one.)
 3. `/docs/REPORT-NAME.pdf` and `/projects/SLUG.webp` placed on disk. Hyphenated,
    lowercase, descriptive filenames — these appear in search results.
 4. `sitemap.xml` — update `<lastmod>` on the homepage entry.
