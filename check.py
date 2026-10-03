@@ -15,6 +15,17 @@ ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "index.html"
 CANONICAL = "https://mohammadkhalikujjaman.com/"
 
+# Files deliberately kept on disk although nothing links to them. Three case
+# studies were reduced to one-line entries in "Other MSc coursework" in October
+# 2026; their images were retained so the full cards can be restored without
+# re-exporting artwork. Anything NOT listed here that goes unreferenced is a
+# mistake worth reporting.
+KEPT_UNREFERENCED = {
+    "/projects/ptx-prices.webp",
+    "/projects/e-bike-manufacturing-planning.webp",
+    "/projects/additive-powder-reuse.svg",
+}
+
 failures = []
 
 
@@ -36,8 +47,9 @@ def check_asset_references(html):
         for path in sorted((ROOT / folder).glob("*")):
             if path.name.startswith("."):
                 continue
-            if "/%s/%s" % (folder, path.name) not in html:
-                fail("orphan file, nothing links to it: /%s/%s" % (folder, path.name))
+            ref = "/%s/%s" % (folder, path.name)
+            if ref not in html and ref not in KEPT_UNREFERENCED:
+                fail("orphan file, nothing links to it: %s" % ref)
 
 
 def check_images(html):

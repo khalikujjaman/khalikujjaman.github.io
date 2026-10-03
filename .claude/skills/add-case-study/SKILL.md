@@ -36,7 +36,8 @@ Ask for, and do not proceed without:
 
 ## Template
 
-Copy this exactly. `NN` is the zero-padded index, one higher than the current last card.
+Copy this exactly. `NN` in the `id` is the next unused index (see "Numbering" below);
+the number in `project-index` is the display position, which may differ.
 
 ```html
 <article id="project-NN" class="project-card project-N">
@@ -66,12 +67,28 @@ Copy this exactly. `NN` is the zero-padded index, one higher than the current la
 Tag list: three to four items, one of which is numeric (`2.57 GPa contact`,
 `65 vessels`, `23 trials`).
 
+## Numbering: ids are permanent, display numbers are not
+
+Since October 2026 the `id` on a card and the number it shows are **deliberately
+different**. `#project-NN` anchors are live deep links, so an id stays glued to its
+project forever; the `<span class="project-index">` is cosmetic and reflects position.
+Current state: `project-05` shows 03 and `project-03` shows 05.
+
+- **Never change an existing `id`**, even when reordering. Renumber the
+  `project-index` span only.
+- A new card takes the next **unused** id — ids 01-08 are taken, so project nine is
+  `id="project-09"` — and shows the next display number after the last card.
+- `project-06`, `project-07` and `project-08` are not full cards. They are one-line
+  entries in "Other MSc coursework" below the grid, and keep their ids so old links
+  still resolve.
+
 ## Every addition touches four things
 
 1. The `<article>` in `<div class="project-grid">`.
-2. The `<span class="work-count">NN current projects</span>` above the grid — bump
-   the count. (There is no longer a "recently added" nav; it was removed in
-   August 2026. Do not reintroduce one.)
+2. The `<span class="work-count">` above the grid — it reads "5 selected MSc
+   projects", a curated count, not a total. Update it only if the number of full
+   cards changes. (There is no "recently added" nav; it was removed in August 2026.
+   Do not reintroduce one.)
 3. `/docs/REPORT-NAME.pdf` and `/projects/SLUG.webp` placed on disk. Hyphenated,
    lowercase, descriptive filenames — these appear in search results.
 4. `sitemap.xml` — update `<lastmod>` on the homepage entry.
