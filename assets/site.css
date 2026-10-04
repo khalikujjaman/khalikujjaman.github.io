@@ -12,3 +12,4 @@
 .work-section .earlier-link:hover{color:#f6d29c}
 @media (width<=760px){.work-section .earlier-item{grid-template-columns:1fr;gap:14px;align-items:start}}
 @media (width>760px){.project-grid .project-5{grid-column:1/-1}}
+.timeline li>div:last-child>p{color:#5c6f72;margin:12px 0 0;font-size:14px;line-height:1.7}
