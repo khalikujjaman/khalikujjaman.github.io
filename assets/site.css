@@ -13,3 +13,5 @@
 @media (width<=760px){.work-section .earlier-item{grid-template-columns:1fr;gap:14px;align-items:start}}
 @media (width>760px){.project-grid .project-5{grid-column:1/-1}}
 .timeline li>div:last-child>p{color:#5c6f72;margin:12px 0 0;font-size:14px;line-height:1.7}
+.publication-content .publication-coverage{color:#4e5a58;margin:-22px 0 30px;font-size:12px;line-height:1.7}
+.publication-content .publication-coverage a{color:var(--navy);font-weight:750;text-decoration:underline;text-underline-offset:2px}
